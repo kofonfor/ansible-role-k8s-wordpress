@@ -1,0 +1,17 @@
+mariadb:
+  enabled: false
+
+externalDatabase:
+## All of these values are only used when mariadb.enabled is set to false
+  ## Database host
+  host: percona-pxc
+  user: test
+  password: "test"
+  database: test
+  port: 3306
+
+serviceType: NodePort
+
+persistence:
+  enabled: false
+  storageClass: "local-storage"

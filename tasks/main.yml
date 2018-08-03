@@ -1,0 +1,5 @@
+- name: put values
+  template: src=values.yml dest=/tmp/wordpress-{{ wordpress_helm_release }}.yml
+
+- name: upgrade {{ wordpress_helm_release }} release using a Helm chart
+  shell: helm upgrade {{ wordpress_helm_release }} stable/wordpress --install --recreate-pods --namespace {{ k8s_namespace }} -f /tmp/wordpress-{{ wordpress_helm_release }}.yml
